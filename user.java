@@ -1,7 +1,3 @@
-public class Main {
-    
-}
-
 package com.library;
 
 public class Book {
