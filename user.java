@@ -1,31 +1,20 @@
-package com.library;
+package com.ecommerce;
 
-public class Book {
-    private String isbn;
-    private String title;
-    private String author;
-    private boolean isAvailable;
+public class User {
+    private int userID;
+    private String firstName;
+    private String lastName;
+    private String password;
+    private String status;
 
-    // Constructor
-    public Book(String isbn, String title, String author) {
-        this.isbn = isbn;
-        this.title = title;
-        this.author = author;
-        this.isAvailable = true; // Default: available
+    public User(int userID, String password) {
+        this.userID = userID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.status = "active";
     }
 
-    // Getters & Setters
-    public String getIsbn() { return isbn; }
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public boolean isAvailable() { return isAvailable; }
-
-    public void setAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
-
-    @Override
-    public String toString() {
-        return "📖 " + title + " by " + author + " (" + (isAvailable ? "Available" : "Borrowed") + ")";
-    }
+    public void login() { System.out.println("User logged in."); }
+    public void logout() { System.out.println("User logged out."); }
 }
