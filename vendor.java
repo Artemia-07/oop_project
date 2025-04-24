@@ -13,7 +13,7 @@ public class Vendor extends User {
     }
 
     public void addProduct() { 
-         
+        product.add()
     }
     public void updateProduct() { 
          

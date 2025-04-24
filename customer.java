@@ -5,7 +5,7 @@ public class Customer extends User {\
     private String customerName;
     private String email;
     private String address;
-    private 
+    private String creditCard;
     private ShoppingCart cart;
 
     public Customer(int userID, String password, String name) {
