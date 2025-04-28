@@ -75,13 +75,13 @@ public class Shipment {
     public double getShippingCost() { return shippingCost; }
     public Order getOrder() { return order; }
 
-    @Override
-    public String toString() {
-        return "Shipment ID: " + shipmentID +
-               "\nFor Order: #" + order.getOrderID() +
-               "\nStatus: " + status +
-               "\nCarrier: " + carrier +
-               "\nTracking: " + trackingNumber +
-               "\nCost: $" + String.format("%.2f", shippingCost);
-    }
+    // @Override
+    // public String toString() {
+    //     return "Shipment ID: " + shipmentID +
+    //            "\nFor Order: #" + order.getOrderID() +
+    //            "\nStatus: " + status +
+    //            "\nCarrier: " + carrier +
+    //            "\nTracking: " + trackingNumber +
+    //            "\nCost: $" + String.format("%.2f", shippingCost);
+    // }
 }

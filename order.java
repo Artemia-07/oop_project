@@ -65,12 +65,12 @@ public class Order {
     public void setPayment(Payment payment) { this.payment = payment; }
     public void setShipment(Shipment shipment) { this.shipment = shipment; }
 
-    @Override
-    public String toString() {
-        return "Order #" + orderID + 
-               "\nCustomer: " + customer.getFirstName() + 
-               "\nDate: " + orderDate + 
-               "\nStatus: " + status + 
-               "\nTotal: $" + calculateTotal();
-    }
+    // @Override
+    // public String toString() {
+    //     return "Order #" + orderID + 
+    //            "\nCustomer: " + customer.getFirstName() + 
+    //            "\nDate: " + orderDate + 
+    //            "\nStatus: " + status + 
+    //            "\nTotal: $" + calculateTotal();
+    // }
 }

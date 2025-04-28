@@ -17,8 +17,8 @@ public class Product{
         this.stock = stock;
     }
     public void updateStock(Stock stock){
-        .updateStatus(newStatus); 
-        System.out.println("Admin " + adminName + " updated Order #" + order.getOrderID() + " to: " + newStatus);
+        stock.updateStatus(newStatus); 
+        System.out.println("Updated stock #" + order.getQuantity() + " to: " + newStatus);
     }
     public int getProductID() { return productID; }
     public String getProductName() { return productName; }

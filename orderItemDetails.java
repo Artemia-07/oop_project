@@ -41,10 +41,10 @@ public class OrderItem {
         calculateTotalPrice(); 
     }
 
-    @Override
-    public String toString() {
-        return "OrderItem [Product: " + product.getProductName() + 
-               ", Quantity: " + quantity + 
-               ", Total: $" + totalPrice + "]";
-    }
+    // @Override
+    // public String toString() {
+    //     return "OrderItem [Product: " + product.getProductName() + 
+    //            ", Quantity: " + quantity + 
+    //            ", Total: $" + totalPrice + "]";
+    // }
 }

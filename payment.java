@@ -53,13 +53,13 @@ public class Payment {
     public String getStatus() { return status; }
     public Order getOrder() { return order; }
 
-    @Override
-    public String toString() {
-        return "Payment ID: " + paymentID +
-               "\nAmount: $" + String.format("%.2f", amount) +
-               "\nMethod: " + paymentMethod +
-               "\nDate: " + paymentDate +
-               "\nStatus: " + status +
-               "\nFor Order: #" + order.getOrderID();
-    }
+    // @Override
+    // public String toString() {
+    //     return "Payment ID: " + paymentID +
+    //            "\nAmount: $" + String.format("%.2f", amount) +
+    //            "\nMethod: " + paymentMethod +
+    //            "\nDate: " + paymentDate +
+    //            "\nStatus: " + status +
+    //            "\nFor Order: #" + order.getOrderID();
+    // }
 }

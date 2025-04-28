@@ -8,9 +8,13 @@ public class Customer extends User {\
     private String creditCard;
     private ShoppingCart cart;
 
-    public Customer(int userID, String password, String name) {
-        super(userID, password);
+    public Customer(int userID, String firstName, String lastName, String password, String name) {
+        super(userID, firstName, lastName, password);
         this.customerName = name;
+        this.email = email;
+        this.customerID = customerID;
+        this.address = address;
+        this.creditCard = creditCard;
         this.cart = new ShoppingCart();
     }
 
@@ -21,6 +25,7 @@ public class Customer extends User {\
          
     }
     public void checkout() { 
+        if()
         System.out.println("Order placed by " + customerName); 
     }
 }
