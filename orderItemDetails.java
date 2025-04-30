@@ -16,26 +16,12 @@ public class OrderItem {
         this.totalPrice = product.getPrice() * quantity;
     }
 
-    public int getOrderID() {
-        return orderID;
-    }
+    public int getOrderID() { return orderID; }
+    public int getQuantity() { return quantity; }
+    public double getTotalPrice() { return totalPrice; }
+    public Product getProduct() { return product; }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
-    }
-
+    public void setOrderID(int orderID) { this.orderID = orderID; }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
         calculateTotalPrice(); 

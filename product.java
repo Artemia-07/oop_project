@@ -16,10 +16,12 @@ public class Product{
         this.price = price;
         this.stock = stock;
     }
+    
     public void updateStock(Stock stock){
         stock.updateStatus(newStatus); 
         System.out.println("Updated stock #" + order.getQuantity() + " to: " + newStatus);
     }
+
     public int getProductID() { return productID; }
     public String getProductName() { return productName; }
     public String getCategory() { return category; }

@@ -16,13 +16,16 @@
         public void addItem(Product product) { 
             items.add(product); 
         }
+        
         public void removeItem(Product product){
             items.remove(product);
         }
+
         public void clearCart(){
             cart.clear();
             System.out.println("Cart cleared.");
         }
+
         public int getCartID() { return cartID; }
         public LocalDate getCreatedDate() { return createdDate; }
     }
