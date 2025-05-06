@@ -7,6 +7,7 @@ public class Product {
     private String description;
     private double price;  
     private Stock stock;
+    private static int productCount = 0;
 
     public Product(int productID, String productName, String category, 
                  String description, double price, Stock stock) {
@@ -16,6 +17,7 @@ public class Product {
         this.description = description;
         this.price = price;
         this.stock = stock;
+        productCount++;
     }
     
     public void setProductName(String newName) {
@@ -44,6 +46,10 @@ public class Product {
             System.out.println("Updated stock quantity for product #" + productID + 
                               " to: " + newQuantity);
         }
+    }
+
+    public void getTotalProducts(){
+        System.out.println("Total number of products in system: " + productCount);
     }
 
     public int getProductID() { return productID; }

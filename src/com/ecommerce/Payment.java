@@ -8,7 +8,8 @@ public class Payment {
     private String paymentMethod; 
     private LocalDateTime paymentDate;
     private String status; 
-    private Order order; 
+    private Order order;
+    private static double totalRevenue = 0;
 
     public Payment(String paymentMethod, double amount, Order order) {
         this.paymentID = "PAY-" + System.currentTimeMillis();
@@ -21,10 +22,11 @@ public class Payment {
 
     public void processPayment() {
         if (status.equals("Pending")) {
-            boolean paymentSuccess = Math.random() > 0.2; 
+            boolean paymentSuccess = Math.random() < 0.8; 
             
             if (paymentSuccess) {
                 this.status = "Completed";
+                totalRevenue += amount; 
                 System.out.println("Payment processed successfully for order #" + order.getOrderID());
                 order.updateStatus("Paid");
             } else {
@@ -39,11 +41,16 @@ public class Payment {
     public void refundPayment() {
         if (status.equals("Completed")) {
             this.status = "Refunded";
+            totalRevenue -= amount; 
             System.out.println("Payment refunded for order #" + order.getOrderID());
             order.updateStatus("Refunded");
         } else {
             throw new IllegalStateException("Cannot refund payment in current state: " + status);
         }
+    }
+
+    public void getTotalRevenue() {
+        System.out.printf("Total revenue: $%.2f%n", totalRevenue);
     }
 
     public String getPaymentID() { return paymentID; }

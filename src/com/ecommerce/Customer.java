@@ -4,7 +4,7 @@ public class Customer extends User {
     private int customerID;
     private String email;
     private String address;
-    private String creditCardInfo; // Renamed for security clarity
+    private String creditCardInfo;
     private ShoppingCart cart;
 
     public Customer(int userID, String firstName, String lastName, String password,
@@ -13,12 +13,12 @@ public class Customer extends User {
         this.customerID = customerID;
         this.email = email;
         this.address = address;
-        this.cart = new ShoppingCart(generateCartId()); // Initialize with unique ID
+        this.cart = new ShoppingCart(generateCartId());
+        this.creditCardInfo = "";
     }
 
     public void addItemToCart(Product product, int quantity) {
         if (product != null && quantity > 0) {
-            // Add the product 'quantity' times to the cart
             for (int i = 0; i < quantity; i++) {
                 cart.addItem(product);
             }
@@ -41,13 +41,12 @@ public class Customer extends User {
     }
 
     public Order checkout() {
-        if (cart.isEmpty()) {
+        if (cart.getItems().isEmpty()) {
             throw new IllegalStateException("Cannot checkout with empty cart");
         }
         
         Order order = new Order(generateOrderId(), this);
         
-        // Convert cart items to order items with quantities
         for (Product product : cart.getItems()) {
             int quantity = (int) cart.getItems().stream()
                                   .filter(p -> p.getProductID() == product.getProductID())
@@ -56,24 +55,23 @@ public class Customer extends User {
         }
         
         cart.clearCart();
-        System.out.println("Order #" + order.getOrderID() + " placed by " + getFullName());
+        System.out.print("Order #" + order.getOrderID() + " placed by ");
+        getFullName(); 
         return order;
     }
 
-    // Getters
     public int getCustomerID() { return customerID; }
     public String getEmail() { return email; }
     public String getAddress() { return address; }
     public ShoppingCart getCart() { return cart; }
+    public String getCreditCardInfo() { return creditCardInfo; } 
 
-    // Secure credit card handling
     public void setCreditCard(String encryptedCardInfo) {
         if (encryptedCardInfo != null && !encryptedCardInfo.isEmpty()) {
             this.creditCardInfo = encryptedCardInfo;
         }
     }
 
-    // Helper methods
     private int generateOrderId() {
         return (int) (System.currentTimeMillis() % 1000000);
     }
@@ -82,7 +80,8 @@ public class Customer extends User {
         return (int) (System.currentTimeMillis() % 10000);
     }
 
-    public String getFullName() {
-        return ;
-    }
+//     @Override
+// public String getFullName() {
+//     return super.getFullName(); // or getFirstName() + " " + getLastName();
+//}
 }

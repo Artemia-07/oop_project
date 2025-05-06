@@ -12,7 +12,7 @@ public class ShoppingCart {
     public ShoppingCart(int cartID) {
         this.cartID = cartID;
         this.createdDate = LocalDate.now();
-        this.items = new ArrayList<>(); // Initialize the list
+        this.items = new ArrayList<>(); 
     }
 
     public void addItem(Product product) { 
@@ -21,12 +21,16 @@ public class ShoppingCart {
         }
     }
     
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+    
     public void removeItem(Product product) {
         items.remove(product);
     }
 
     public void clearCart() {
-        items.clear(); // Fixed: clearing 'items' instead of undefined 'cart'
+        items.clear(); 
         System.out.println("Cart cleared.");
     }
 

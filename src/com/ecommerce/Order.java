@@ -13,12 +13,14 @@ public class Order {
     private List<OrderItem> items = new ArrayList<>();
     private Payment payment;
     private Shipment shipment;
+    private static int orderCount = 0;
 
     public Order(int orderID, Customer customer) {
         this.orderID = orderID;
         this.customer = customer;
         this.orderDate = LocalDateTime.now();
         this.status = "Pending";
+        orderCount++;
     }
 
     public void addItem(Product product, int quantity) {
@@ -52,6 +54,10 @@ public class Order {
             throw new IllegalStateException("Cannot cancel delivered order");
         }
         this.status = "Cancelled";
+    }
+
+    public void getTotalOrders() {
+        System.out.println("Total number of orders in system: " + orderCount);
     }
 
     public int getOrderID() { return orderID; }
