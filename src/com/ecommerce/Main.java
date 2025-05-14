@@ -9,29 +9,29 @@ public class Main {
         System.out.println("=== E-Commerce System Startup ===");
 
         // 2. Create products
-        Product laptop = new Product(101, "Premium Laptop", "Electronics",
-                                   "16GB RAM, 1TB SSD", 1299.99, new Stock(50, "WAREHOUSE-1"));
-        Product mouse = new Product(102, "Gaming Mouse", "Accessories",
-                                  "RGB, 8000DPI", 59.99, new Stock(200, "WAREHOUSE-2"));
+        Product phone = new Product(101, "Xiaomi 15 Ultra", "Electronics",
+                                   "16GB RAM, 512GB SSD", 459.99, new Stock(150, "WAREHOUSE-1"));
+        Product cooler = new Product(102, "Nubia RedMagic 6 Pro Magnetic Cell Phone Cooler", "Accessories",
+                                  "9V, 30W, Graphene Cooling, 35dB", 69.99, new Stock(250, "WAREHOUSE-2"));
 
         // 3. Create users - Fixed constructors
-        Admin admin = new Admin(1, "System", "Administrator", "admin123", 
-                              901, "admin@store.com", "Admin User");
-        Vendor vendor = new Vendor(2, "Tech", "Vendor", "vendor123", 
-                                501, "Tech Vendor", "Tech Haven", "");
-        Customer customer = new Customer(3, "Alice", "Johnson", "alice123",
-                                      3001, "alice@email.com", "123 Main St, City");
+        Admin admin = new Admin(1, "Mike", "Anderson", "admin123", 
+                              201, "upandabove@store.com", "mikeanderson@hmail.com");
+        Vendor vendor = new Vendor(2, "Jay", "Wong", "vendor123", 
+                                301, "Gadget Vendor", "Gadget Galore", "");
+        Customer customer = new Customer(3, "Alistair", "Mcreed", "customer123",
+                                      4001, "alice@email.com", "123 Main St, Los Angeles");
 
         // 4. Vendor adds products
-        vendor.addProduct(laptop);
-        vendor.addProduct(mouse);
+        vendor.addProduct(phone);
+        vendor.addProduct(cooler);
         System.out.println("\nVendor '" + vendor.getStoreName() + "' has these products:");
         vendor.getProducts().forEach(p -> System.out.println("- " + p.getProductName() + " ($" + p.getPrice() + ")"));
 
         // 5. Customer shops
         System.out.println("\nCustomer '" + customer.getFirstName() + " " + customer.getLastName() + "' is shopping:");
-        customer.addItemToCart(laptop, 1);
-        customer.addItemToCart(mouse, 2);
+        customer.addItemToCart(phone, 1);
+        customer.addItemToCart(cooler, 2);
 
         // Display cart contents
         System.out.println("\nCart Contents:");
@@ -58,8 +58,8 @@ public class Main {
         // 8. System status
         System.out.println("\n=== System Status ===");
         System.out.println("Products:");
-        System.out.println("- " + laptop.getProductName() + ": " + laptop.getStock().getQuantity() + " in stock");
-        System.out.println("- " + mouse.getProductName() + ": " + mouse.getStock().getQuantity() + " in stock");
+        System.out.println("- " + phone.getProductName() + ": " + phone.getStock().getQuantity() + " in stock");
+        System.out.println("- " + cooler.getProductName() + ": " + cooler.getStock().getQuantity() + " in stock");
         
         System.out.println("\nOrder Status:");
         System.out.println("- Order #" + order.getOrderID() + ": " + order.getStatus());
