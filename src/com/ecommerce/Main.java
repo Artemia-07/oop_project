@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         // 1. Initialize the system
         System.out.println("=== E-Commerce System Startup ===");
-
+        
         // 2. Create products
         Product phone = new Product(101, "Xiaomi 15 Ultra", "Electronics",
                                    "16GB RAM, 512GB SSD", 459.99, new Stock(150, "WAREHOUSE-1"));
@@ -73,5 +73,30 @@ public class Main {
         new Product(0, "", "", "", 0, null).getTotalProducts();
         new Order(0, null).getTotalOrders();
         new Payment("", 0, null).getTotalRevenue();
+
+//          // ===== ERROR HANDLING DEMO =====
+// System.out.println("\n=== Testing Error Handling ===");
+
+// // Attempt to checkout with an empty cart
+// Customer testCustomer = new Customer(4, "Test", "User", "test123", 
+//                                    4002, "test@email.com", "456 Fake St");
+// try {
+//     System.out.println("Attempting checkout with empty cart...");
+//     Order invalidOrder = testCustomer.checkout();  // This will throw an exception
+// } catch (IllegalStateException e) {
+//     System.out.println("ERROR: " + e.getMessage());  // Handle the exception
+// }
+
+// // Attempt to process payment for a cancelled order
+// Order cancelledOrder = new Order(999, customer);
+// cancelledOrder.updateStatus("Cancelled");
+// try {
+//     System.out.println("\nAttempting to ship cancelled order...");
+//     Shipment invalidShipment = new Shipment(cancelledOrder, "FedEx", 12.99, customer.getAddress());
+//     invalidShipment.updateStatus("Shipped");  // Will throw exception
+// } catch (IllegalStateException e) {
+//     System.out.println("ERROR: " + e.getMessage());
+// }
+
     }
 }
